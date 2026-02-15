@@ -1,6 +1,8 @@
+[中文](README_CN.md) | [English](README.md) 
+
 # HideVideo - Personal Lightweight Video Management
 
-HideVideo is a personal lightweight video management system. Built with Go + Gin + GORM + SQLite + Vue3.
+HideVideo is a personal lightweight video management system built with Go + Gin + GORM + SQLite + Vue3.
 
 ## Tech Stack
 
@@ -13,38 +15,38 @@ HideVideo is a personal lightweight video management system. Built with Go + Gin
 1. **User Authentication** - Login/logout with admin and member roles
 2. **Video Library Management** - Add/remove local video libraries, scan videos, generate covers
 3. **Folder Mode** - Browse video hierarchy like a local file manager
-4. **Tag Management** - Multi-tag filtering, tag sorting
-5. **Actor Management** - Actor library management, video association, view actor works
-6. **Sorting** - Sort by creation time, play count, rating, random
+4. **Tag Management** - Multi-tag filtering, tag reordering
+5. **Actor Management** - Actor library management, link videos, view actor filmography
+6. **Sorting** - Sort by creation time, play count, rating, or random
 7. **Search** - Search by tag/video name/video ID
 8. **Video Display** - Pagination, grid configuration (3x4, 4x3, 5x3, 6x3)
-9. **Video Playback** - Popup player, fast forward, playback speed, fullscreen, click to play/pause
+9. **Video Playback** - Popup player, seek, playback speed, fullscreen, click to play/pause
 10. **Rating & Comments** - 10-point rating system, comment functionality
 11. **Icon Generation** - Auto-generate video icons
-12. **User Management** (Admin only) - Add/remove users, view plaintext passwords
-13. **Settings Page** - Basic settings, security settings (change account password)
-14. **Preference Persistence** - Home sorting, items per page, grid columns, tag columns auto-save
+12. **User Management** (admin only) - Add/delete users
+13. **Settings Page** - Basic settings, security settings (change password)
+14. **Preference Persistence** - Home sorting, items per page, grid columns, tag columns auto-saved
 15. **Video Streaming** - Public access, no login required
-16. **Clean Invalid Indexes** - Clean database indexes for deleted videos
+16. **Clean Invalid Indexes** - Clean up database indexes for deleted videos
 
 ## Project Structure
 
 ```
 HideVideo/
-├── backend/           # Go Backend
+├── backend/           # Go backend
 │   ├── main.go       # Entry point
 │   ├── config/       # Configuration
 │   ├── models/       # Data models
 │   ├── handlers/     # API handlers
 │   ├── database/     # Database operations
 │   └── utils/        # Utilities (FFmpeg)
-├── frontend/         # Vue3 Frontend
+├── frontend/         # Vue3 frontend
 │   ├── src/
 │   │   ├── views/   # Pages (Home, Login, Libraries, FileManager, Settings, ActorVideos)
 │   │   ├── components/ # Components (TopNav, VideoPlayer, AppFooter)
 │   │   ├── stores/  # State management (auth, video)
 │   │   ├── api/     # API calls
-│   │   └── router/  # Route configuration
+│   │   └── router/  # Router configuration
 │   └── package.json
 └── data/             # Data directory (SQLite database, covers, icons)
 ```
@@ -56,18 +58,48 @@ HideVideo/
 1. **Go** 1.18+
 2. **Node.js** 18+ (for frontend)
 3. **FFmpeg** (for video processing and cover generation)
-4. **FFprobe** (for video information parsing)
+4. **FFprobe** (for video info parsing)
 
 ### Installation
 
-#### 1. Clone the project
+#### 1. Docker (Recommended)
 
 ```bash
-git clone <repository-url>
+# Create data directory
+mkdir -p ./data
+
+# Start container
+docker run -d \
+  -v $(pwd)/data:/app/data \
+  -p 49377:49377 \
+  --name hidevideo \
+  --restart unless-stopped \
+  pureages/hidevideo:latest
+```
+
+FFmpeg must be installed on the host machine and mounted into the container:
+
+```bash
+docker run -d \
+  -v $(pwd)/data:/app/data \
+  -v /usr/bin/ffmpeg:/usr/bin/ffmpeg:ro \
+  -v /usr/bin/ffprobe:/usr/bin/ffprobe:ro \
+  -p 49377:49377 \
+  --name hidevideo \
+  --restart unless-stopped \
+  pureages/hidevideo:latest
+```
+
+#### 2. Local Deployment
+
+##### Clone Project
+
+```bash
+git clone https://github.com/pureages/HideVideo.git
 cd HideVideo
 ```
 
-#### 2. Start the backend
+##### Start Backend
 
 ```bash
 cd backend
@@ -75,21 +107,11 @@ go mod tidy
 go run main.go
 ```
 
-The backend will start at http://localhost:49377
+Backend will start at http://localhost:49377
 
-#### 3. Start the frontend
+### Access the System
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-The frontend dev server will start at http://localhost:49378
-
-#### 4. Access the system
-
-Open browser to http://localhost:49378
+Open browser to http://localhost:49377 (or: `<your-server-ip>:49377`)
 
 Default admin account:
 - Username: admin
@@ -113,14 +135,10 @@ Modify `frontend/vite.config.js`:
 - `server.port`: Frontend port (default 49378)
 - `server.allowedHosts`: Allowed hosts (for reverse proxy)
 
-### FFmpeg Path
-
-Ensure FFmpeg is installed and added to system PATH. If using a non-standard path, modify the command paths in `backend/utils/utils.go`.
-
 ## User Roles
 
-- **Admin**: Can manage users, view all users' plaintext passwords
-- **Member**: Can only modify their own account and password
+- **Admin**: Can manage users
+- **Member**: Can only modify their own username and password
 
 ## API Endpoints
 
@@ -130,10 +148,10 @@ Ensure FFmpeg is installed and added to system PATH. If using a non-standard pat
 - `GET /api/auth/check` - Check login status
 
 ### Video Library
-- `GET /api/libraries` - Get library list
-- `POST /api/libraries` - Add library
-- `DELETE /api/libraries/:id` - Delete library
-- `POST /api/libraries/:id/scan` - Scan library
+- `GET /api/libraries` - Get video library list
+- `POST /api/libraries` - Add video library
+- `DELETE /api/libraries/:id` - Delete video library
+- `POST /api/libraries/:id/scan` - Scan video library
 - `POST /api/libraries/:id/cover` - Generate covers
 - `POST /api/libraries/:id/icon` - Generate icons
 - `POST /api/libraries/clean-invalid` - Clean invalid indexes
@@ -166,14 +184,14 @@ Ensure FFmpeg is installed and added to system PATH. If using a non-standard pat
 - `POST /api/videos/:id/comments` - Add comment
 - `DELETE /api/comments/:id` - Delete comment
 
-### Tags
+### Tags (Admin Only)
 - `GET /api/tags` - Get tag list
 - `POST /api/tags` - Add tag
 - `PUT /api/tags/reorder` - Reorder tags
 - `PUT /api/tags/:id` - Update tag
 - `DELETE /api/tags/:id` - Delete tag
 
-### Actors
+### Actors (Admin Only)
 - `GET /api/actors` - Get actor list
 - `POST /api/actors` - Add actor
 - `PUT /api/actors/reorder` - Reorder actors
@@ -181,8 +199,8 @@ Ensure FFmpeg is installed and added to system PATH. If using a non-standard pat
 - `DELETE /api/actors/:id` - Delete actor
 - `GET /api/actors/:id/videos` - Get actor's videos
 
-### User Management (Admin only)
-- `GET /api/users` - Get user list (with plaintext passwords)
+### User Management (Admin Only)
+- `GET /api/users` - Get user list
 - `POST /api/users` - Add user
 - `DELETE /api/users/:id` - Delete user
 - `PUT /api/users/:id/password` - Admin change user password
