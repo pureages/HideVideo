@@ -1,4 +1,4 @@
-[中文](README-zh.md) | [English](#features) 
+[中文](README-zh.md) | [English](README.md) 
 
 # HideVideo 个人轻量视频管理
 
