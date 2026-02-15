@@ -1,3 +1,5 @@
+[中文](README-zh.md) | [English](#features) 
+
 # HideVideo 个人轻量视频管理
 
 HideVideo，个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite + Vue3 的技术栈。
@@ -60,14 +62,31 @@ HideVideo/
 
 ### 安装步骤
 
-#### 1. 克隆项目
+#### 一、Docker（推荐）
+
+docker run -d \
+  -v $(pwd)/data:/app/data \
+  -p 49377:49377 \
+  --name hidevideo \
+  --restart unless-stopped \
+  pureages/hidevideo:latest
+
+必须安装ffmpeg
+
+docker exec hidevideo apt-get update
+docker exec hidevideo apt-get install -y ffmpeg
+docker exec hidevideo rm -rf /var/lib/apt/lists/*
+
+#### 二、本地部署
+
+##### 1. 克隆项目
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/pureages/HideVideo.git
 cd HideVideo
 ```
 
-#### 2. 启动后端
+##### 2. 启动服务器
 
 ```bash
 cd backend
@@ -77,45 +96,15 @@ go run main.go
 
 后端服务将在 http://localhost:49377 启动
 
-#### 3. 启动前端
+### 访问系统
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-前端开发服务器将在 http://localhost:49378 启动
-
-#### 4. 访问系统
-
-打开浏览器访问 http://localhost:49378
+打开浏览器访问 http://localhost:49377 （或者：<你的服务器IP>:49377）
 
 默认管理员账号：
 - 用户名: admin
 - 密码: admin123
 
 ## 配置说明
-
-### 后端配置
-
-修改 `backend/config/config.go`:
-
-- `ServerConfig.Port`: 服务端口 (默认 49377)
-- `DatabaseConfig.Path`: 数据库文件路径 (默认 ./data/hidevideo.db)
-- `ServerConfig.StaticPath`: 封面存储路径 (默认 ./data/covers)
-- `ServerConfig.UploadPath`: 视频文件路径 (默认 ./data)
-
-### 前端配置
-
-修改 `frontend/vite.config.js`:
-
-- `server.port`: 前端端口 (默认 49378)
-- `server.allowedHosts`: 允许的域名（用于反向代理）
-
-### FFmpeg 路径
-
-确保 FFmpeg 已安装并添加到系统 PATH。如果使用非标准路径，需要修改 `backend/utils/utils.go` 中的命令路径。
 
 ## 用户角色
 
@@ -166,14 +155,14 @@ npm run dev
 - `POST /api/videos/:id/comments` - 添加评论
 - `DELETE /api/comments/:id` - 删除评论
 
-### 标签
+### 标签（仅管理员）
 - `GET /api/tags` - 获取标签列表
 - `POST /api/tags` - 添加标签
 - `PUT /api/tags/reorder` - 排序标签
 - `PUT /api/tags/:id` - 更新标签
 - `DELETE /api/tags/:id` - 删除标签
 
-### 演员
+### 演员（仅管理员）
 - `GET /api/actors` - 获取演员列表
 - `POST /api/actors` - 添加演员
 - `PUT /api/actors/reorder` - 排序演员
