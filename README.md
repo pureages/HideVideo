@@ -87,8 +87,8 @@ Default admin account:
 1. **User Authentication** - Login/logout with admin and member roles
 2. **Video Library Management** - Add/remove local video libraries, scan videos, generate covers
 3. **Folder Mode** - Browse video hierarchy like a local file manager
-4. **Tag Management** - Multi-tag filtering, tag reordering
-5. **Actor Management** - Actor library management, link videos, view actor filmography
+4. **Tag Management** - (admin only) - Multi-tag filtering, tag reordering
+5. **Actor Management** - (admin only) - Actor library management, link videos, view actor filmography
 6. **Sorting** - Sort by creation time, play count, rating, or random
 7. **Search** - Search by tag/video name/video ID
 8. **Video Display** - Pagination, grid configuration (3x4, 4x3, 5x3, 6x3)
