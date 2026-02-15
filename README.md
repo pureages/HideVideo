@@ -3,7 +3,7 @@
 # HideVideo - Personal Lightweight Video Management
 
 HideVideo is a personal lightweight video management system . (个人轻量视频库管理系统) 
-Built with Go + Gin + GORM + SQLite + Vue3.
+Built with Go + Gin + GORM + SQLite3.
 
 <table style="width: 100%;">
   <tr>
@@ -20,9 +20,69 @@ Built with Go + Gin + GORM + SQLite + Vue3.
 
 ## Tech Stack
 
-- **Backend**: Go, Gin, GORM, SQLite
-- **Frontend**: Vue3, Pinia, Vue Router, Axios
+- **Backend**: Go, Gin, GORM, SQLite3
 - **Video Processing**: FFmpeg
+
+## Quick Start
+
+### Prerequisites
+
+1. **Go** 1.18+
+2. **Node.js** 18+ (for frontend)
+3. **FFmpeg** (for video processing and cover generation)
+4. **FFprobe** (for video info parsing)
+
+### Installation
+
+#### 1. Docker (Recommended)
+##### (1)First run
+```
+docker run -d \
+  -v $(pwd)/data:/app/data \
+  -p 49377:49377 \
+  --name hidevideo \
+  --restart unless-stopped \
+  pureages/hidevideo:latest
+```
+
+##### (2)Then install ffmpeg:
+
+```
+docker exec hidevideo apt-get update
+docker exec hidevideo apt-get install -y ffmpeg
+docker exec hidevideo rm -rf /var/lib/apt/lists/*
+```
+Note: The directory for adding video libraries is /app/data/……, and your video folder should be placed in $(pwd)/data!
+
+#### 2. Local Deployment
+
+##### Clone Project
+
+```bash
+git clone https://github.com/pureages/HideVideo.git
+cd HideVideo
+```
+
+##### Start Backend
+
+```bash
+cd backend
+go mod tidy
+go run main.go
+```
+
+Backend will start at http://localhost:49377
+
+### Access the System
+
+Open browser to http://localhost:49377 (or: `<your-server-ip>:49377`)
+
+Default admin account:
+```
+- Username: admin
+- Password: admin123
+```
+
 
 ## Features
 
@@ -64,92 +124,6 @@ HideVideo/
 │   └── package.json
 └── data/             # Data directory (SQLite database, covers, icons)
 ```
-
-## Quick Start
-
-### Prerequisites
-
-1. **Go** 1.18+
-2. **Node.js** 18+ (for frontend)
-3. **FFmpeg** (for video processing and cover generation)
-4. **FFprobe** (for video info parsing)
-
-### Installation
-
-#### 1. Docker (Recommended)
-
-```bash
-# Create data directory
-mkdir -p ./data
-
-# Start container
-docker run -d \
-  -v $(pwd)/data:/app/data \
-  -p 49377:49377 \
-  --name hidevideo \
-  --restart unless-stopped \
-  pureages/hidevideo:latest
-```
-
-FFmpeg must be installed on the host machine and mounted into the container:
-
-```
-docker exec hidevideo apt-get update
-docker exec hidevideo apt-get install -y ffmpeg
-docker exec hidevideo rm -rf /var/lib/apt/lists/*
-```
-
-#### 2. Local Deployment
-
-##### Clone Project
-
-```bash
-git clone https://github.com/pureages/HideVideo.git
-cd HideVideo
-```
-
-##### Start Backend
-
-```bash
-cd backend
-go mod tidy
-go run main.go
-```
-
-Backend will start at http://localhost:49377
-
-### Access the System
-
-Open browser to http://localhost:49377 (or: `<your-server-ip>:49377`)
-
-Default admin account:
-```
-- Username: admin
-- Password: admin123
-```
-
-## Configuration
-
-### Backend Configuration
-
-Modify `backend/config/config.go`:
-
-- `ServerConfig.Port`: Server port (default 49377)
-- `DatabaseConfig.Path`: Database file path (default ./data/hidevideo.db)
-- `ServerConfig.StaticPath`: Cover storage path (default ./data/covers)
-- `ServerConfig.UploadPath`: Video file path (default ./data)
-
-### Frontend Configuration
-
-Modify `frontend/vite.config.js`:
-
-- `server.port`: Frontend port (default 49378)
-- `server.allowedHosts`: Allowed hosts (for reverse proxy)
-
-## User Roles
-
-- **Admin**: Can manage users
-- **Member**: Can only modify their own username and password
 
 ## API Endpoints
 
