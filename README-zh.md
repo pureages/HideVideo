@@ -74,20 +74,20 @@ HideVideo/
 ### 安装步骤
 
 #### 一、Docker（推荐）
-
+```
 docker run -d \
   -v $(pwd)/data:/app/data \
   -p 49377:49377 \
   --name hidevideo \
   --restart unless-stopped \
   pureages/hidevideo:latest
-
+```
 必须安装ffmpeg
-
+```
 docker exec hidevideo apt-get update
 docker exec hidevideo apt-get install -y ffmpeg
 docker exec hidevideo rm -rf /var/lib/apt/lists/*
-
+```
 #### 二、本地部署
 
 ##### 1. 克隆项目
@@ -112,8 +112,10 @@ go run main.go
 打开浏览器访问 http://localhost:49377 （或者：<你的服务器IP>:49377）
 
 默认管理员账号：
+```
 - 用户名: admin
 - 密码: admin123
+```
 
 ## 配置说明
 
