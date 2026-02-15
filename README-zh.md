@@ -2,7 +2,7 @@
 
 # HideVideo （藏影）个人轻量视频管理
 
-HideVideo（藏影），个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite + Vue3 的技术栈。
+HideVideo（藏影），个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite3。
 
 <table style="width: 100%;">
   <tr>
@@ -17,9 +17,74 @@ HideVideo（藏影），个人轻量视频管理系统。基于 Go + Gin + GORM 
 
 ## 技术栈
 
-- **后端**: Go, Gin, GORM, SQLite
-- **前端**: Vue3, Pinia, Vue Router, Axios
+- **后端**: Go, Gin, GORM, SQLite3
 - **视频处理**: FFmpeg
+
+## 快速开始
+
+### 前置要求
+
+1. **Go** 1.18+
+2. **Node.js** 18+ (用于前端)
+3. **FFmpeg** (用于视频处理和封面生成)
+4. **FFprobe** (用于视频信息解析)
+
+### 安装步骤
+
+#### 一、Docker（推荐）
+首先运行
+```
+docker run -d \
+  -v $(pwd)/data:/app/data \
+  -p 49377:49377 \
+  --name hidevideo \
+  --restart unless-stopped \
+  pureages/hidevideo:latest
+```
+然后必须安装ffmpeg
+```
+docker exec hidevideo apt-get update
+docker exec hidevideo apt-get install -y ffmpeg
+docker exec hidevideo rm -rf /var/lib/apt/lists/*
+```
+注意：添加视频库的目录为 /app/data/…… ，你的视频文件夹应该放在 $(pwd)/data 里面！
+
+
+#### 二、本地部署
+
+##### 1. 克隆项目
+
+```bash
+git clone https://github.com/pureages/HideVideo.git
+cd HideVideo
+```
+
+##### 2. 启动服务器
+
+```bash
+cd backend
+go mod tidy
+go run main.go
+```
+
+后端服务将在 http://localhost:49377 启动
+
+### 访问系统
+
+打开浏览器访问 http://localhost:49377 （或者：<你的服务器IP>:49377）
+
+默认管理员账号：
+```
+- 用户名: admin
+- 密码: admin123
+```
+
+## 配置说明
+
+## 用户角色
+
+- **管理员 (admin)**: 可以管理用户、查看所有用户明文密码
+- **普通成员 (member)**: 只能修改自己的账号和密码
 
 ## 功能特性
 
@@ -61,68 +126,6 @@ HideVideo/
 │   └── package.json
 └── data/             # 数据目录（SQLite数据库、封面、图标）
 ```
-
-## 快速开始
-
-### 前置要求
-
-1. **Go** 1.18+
-2. **Node.js** 18+ (用于前端)
-3. **FFmpeg** (用于视频处理和封面生成)
-4. **FFprobe** (用于视频信息解析)
-
-### 安装步骤
-
-#### 一、Docker（推荐）
-```
-docker run -d \
-  -v $(pwd)/data:/app/data \
-  -p 49377:49377 \
-  --name hidevideo \
-  --restart unless-stopped \
-  pureages/hidevideo:latest
-```
-必须安装ffmpeg
-```
-docker exec hidevideo apt-get update
-docker exec hidevideo apt-get install -y ffmpeg
-docker exec hidevideo rm -rf /var/lib/apt/lists/*
-```
-#### 二、本地部署
-
-##### 1. 克隆项目
-
-```bash
-git clone https://github.com/pureages/HideVideo.git
-cd HideVideo
-```
-
-##### 2. 启动服务器
-
-```bash
-cd backend
-go mod tidy
-go run main.go
-```
-
-后端服务将在 http://localhost:49377 启动
-
-### 访问系统
-
-打开浏览器访问 http://localhost:49377 （或者：<你的服务器IP>:49377）
-
-默认管理员账号：
-```
-- 用户名: admin
-- 密码: admin123
-```
-
-## 配置说明
-
-## 用户角色
-
-- **管理员 (admin)**: 可以管理用户、查看所有用户明文密码
-- **普通成员 (member)**: 只能修改自己的账号和密码
 
 ## API 接口
 
