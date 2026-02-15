@@ -25,13 +25,6 @@ Built with Go + Gin + GORM + SQLite3.
 
 ## Quick Start
 
-### Prerequisites
-
-1. **Go** 1.18+
-2. **Node.js** 18+ (for frontend)
-3. **FFmpeg** (for video processing and cover generation)
-4. **FFprobe** (for video info parsing)
-
 ### Installation
 
 #### 1. Docker (Recommended)
@@ -56,6 +49,12 @@ Note: The directory for adding video libraries is /app/data/……, and your vid
 
 #### 2. Local Deployment
 
+### Prerequisites
+
+1. **Go** 1.18+
+2. **FFmpeg** (for video processing and cover generation)
+3. **FFprobe** (for video info parsing)
+   
 ##### Clone Project
 
 ```bash
