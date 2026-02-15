@@ -4,6 +4,19 @@
 
 HideVideo is a personal lightweight video management system built with Go + Gin + GORM + SQLite + Vue3.
 
+<table style="width: 100%;">
+  <tr>
+    <td><img src="screenshots/1.png" alt="img1" style="width: 100%;"></td>
+    <td><img src="screenshots/2.png" alt="img2" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/3.png" alt="img3" style="width: 100%;"></td>
+    <td><img src="screenshots/4.png" alt="img4" style="width: 100%;"></td>
+  </tr>
+</table>
+
+
+
 ## Tech Stack
 
 - **Backend**: Go, Gin, GORM, SQLite
