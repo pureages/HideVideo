@@ -47,9 +47,9 @@ docker exec hidevideo rm -rf /var/lib/apt/lists/*
 
 ##### 1.前置要求
 
-（1） **Go** 1.18+
-（2） **FFmpeg** (用于视频处理和封面生成)
-（3） **FFprobe** (用于视频信息解析)
+1 -  **Go** 1.18+
+2 -  **FFmpeg** (用于视频处理和封面生成)
+3 -  **FFprobe** (用于视频信息解析)
 
 ##### 2. 克隆项目
 
