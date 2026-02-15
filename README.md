@@ -2,7 +2,8 @@
 
 # HideVideo - Personal Lightweight Video Management
 
-HideVideo is a personal lightweight video management system (个人轻量视频库管理系统) , built with Go + Gin + GORM + SQLite + Vue3.
+HideVideo is a personal lightweight video management system . (个人轻量视频库管理系统) 
+Built with Go + Gin + GORM + SQLite + Vue3.
 
 <table style="width: 100%;">
   <tr>
