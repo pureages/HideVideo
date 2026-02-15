@@ -32,7 +32,7 @@ HideVideo（藏影），个人轻量视频管理系统。基于 Go + Gin + GORM 
 ### 安装步骤
 
 #### 一、Docker（推荐）
-首先运行
+##### 1.首先运行
 ```
 docker run -d \
   -v $(pwd)/data:/app/data \
@@ -41,7 +41,7 @@ docker run -d \
   --restart unless-stopped \
   pureages/hidevideo:latest
 ```
-然后必须安装ffmpeg
+##### 2.然后安装ffmpeg
 ```
 docker exec hidevideo apt-get update
 docker exec hidevideo apt-get install -y ffmpeg
