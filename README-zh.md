@@ -45,20 +45,20 @@ docker exec hidevideo rm -rf /var/lib/apt/lists/*
 
 #### 二、本地部署
 
-##### 前置要求
+##### 1.前置要求
 
-1. **Go** 1.18+
-2. **FFmpeg** (用于视频处理和封面生成)
-3. **FFprobe** (用于视频信息解析)
+（1） **Go** 1.18+
+（2） **FFmpeg** (用于视频处理和封面生成)
+（3） **FFprobe** (用于视频信息解析)
 
-##### 1. 克隆项目
+##### 2. 克隆项目
 
 ```bash
 git clone https://github.com/pureages/HideVideo.git
 cd HideVideo
 ```
 
-##### 2. 启动服务器
+##### 3. 启动服务器
 
 ```bash
 cd backend
