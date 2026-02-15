@@ -40,7 +40,7 @@ docker exec hidevideo apt-get update
 docker exec hidevideo apt-get install -y ffmpeg
 docker exec hidevideo rm -rf /var/lib/apt/lists/*
 ```
-注意：添加视频库的目录为 /app/data/…… ，你的视频文件夹应该放在 $(pwd)/data 里面！$(pwd)默认是你用户名，也可以自定义路径！
+注意：添加视频库的目录为 ```/app/data/…… ```，你的视频文件夹应该放在 ```$(pwd)/data``` 里面！```$(pwd)```默认是你用户名，也可以自定义路径！
 
 
 #### 二、本地部署
