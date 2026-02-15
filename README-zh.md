@@ -1,8 +1,8 @@
 [中文](README-zh.md) | [English](README.md) 
 
-# HideVideo （藏影）个人轻量视频管理
+# HideVideo 个人轻量视频管理
 
-HideVideo（藏影），个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite3。
+HideVideo，个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite3。
 
 <table style="width: 100%;">
   <tr>
