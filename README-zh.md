@@ -1,8 +1,19 @@
 [中文](README-zh.md) | [English](README.md) 
 
-# HideVideo 个人轻量视频管理
+# HideVideo （藏影）个人轻量视频管理
 
-HideVideo，个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite + Vue3 的技术栈。
+HideVideo（藏影），个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite + Vue3 的技术栈。
+
+<table style="width: 100%;">
+  <tr>
+    <td><img src="screenshots/1.png" alt="img1" style="width: 100%;"></td>
+    <td><img src="screenshots/2.png" alt="img2" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/3.png" alt="img3" style="width: 100%;"></td>
+    <td><img src="screenshots/4.png" alt="img4" style="width: 100%;"></td>
+  </tr>
+</table>
 
 ## 技术栈
 
