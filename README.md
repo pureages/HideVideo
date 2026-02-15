@@ -45,7 +45,7 @@ docker exec hidevideo apt-get update
 docker exec hidevideo apt-get install -y ffmpeg
 docker exec hidevideo rm -rf /var/lib/apt/lists/*
 ```
-Note: （1）The directory for adding video libraries is /app/data/……, and your video folder should be placed in ```$(pwd)/data```（2）```\$(pwd) ```defaults to your username, but you can also customize the path!
+Note: （1）The directory for adding video libraries is /app/data/……, and your video folder should be placed in ```$(pwd)/data```（2）```$(pwd) ```defaults to your username, but you can also customize the path!
 
 #### 2. Local Deployment
 
