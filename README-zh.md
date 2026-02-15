@@ -2,7 +2,7 @@
 
 # HideVideo 个人轻量视频管理
 
-HideVideo，个人轻量视频管理系统。基于 Go + Gin + GORM + SQLite3。
+个人轻量视频管理系统，与其他视频刮削的库不同，HideVideo更注重个人一些杂七杂八的视频的收藏。
 
 <table style="width: 100%;">
   <tr>
