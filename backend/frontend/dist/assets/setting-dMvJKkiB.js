@@ -1,0 +1,1 @@
+import{G as t}from"./index--Q4BRkWj.js";const n={getLoginProtection(){return t.get("/settings/login-protection")},setLoginProtection(o){return t.post("/settings/login-protection",{enabled:o})}};export{n as s};
