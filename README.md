@@ -93,15 +93,10 @@ docker run -d \
 
 FFmpeg must be installed on the host machine and mounted into the container:
 
-```bash
-docker run -d \
-  -v $(pwd)/data:/app/data \
-  -v /usr/bin/ffmpeg:/usr/bin/ffmpeg:ro \
-  -v /usr/bin/ffprobe:/usr/bin/ffprobe:ro \
-  -p 49377:49377 \
-  --name hidevideo \
-  --restart unless-stopped \
-  pureages/hidevideo:latest
+```
+docker exec hidevideo apt-get update
+docker exec hidevideo apt-get install -y ffmpeg
+docker exec hidevideo rm -rf /var/lib/apt/lists/*
 ```
 
 #### 2. Local Deployment
@@ -128,8 +123,10 @@ Backend will start at http://localhost:49377
 Open browser to http://localhost:49377 (or: `<your-server-ip>:49377`)
 
 Default admin account:
+```
 - Username: admin
 - Password: admin123
+```
 
 ## Configuration
 
