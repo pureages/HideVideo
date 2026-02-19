@@ -101,28 +101,6 @@ Default admin account:
 15. **Video Streaming** - Public access, no login required
 16. **Clean Invalid Indexes** - Clean up database indexes for deleted videos
 
-## Project Structure
-
-```
-HideVideo/
-├── backend/           # Go backend
-│   ├── main.go       # Entry point
-│   ├── config/       # Configuration
-│   ├── models/       # Data models
-│   ├── handlers/     # API handlers
-│   ├── database/     # Database operations
-│   └── utils/        # Utilities (FFmpeg)
-├── frontend/         # Vue3 frontend
-│   ├── src/
-│   │   ├── views/   # Pages (Home, Login, Libraries, FileManager, Settings, ActorVideos)
-│   │   ├── components/ # Components (TopNav, VideoPlayer, AppFooter)
-│   │   ├── stores/  # State management (auth, video)
-│   │   ├── api/     # API calls
-│   │   └── router/  # Router configuration
-│   └── package.json
-└── data/             # Data directory (SQLite database, covers, icons)
-```
-
 ## API Endpoints
 
 ### Authentication
