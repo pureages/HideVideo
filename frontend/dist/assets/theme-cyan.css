@@ -1,0 +1,357 @@
+/* 幻青主题 - 青色炫酷动态风格 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 主色调 - 青色系 */
+  --primary: #00f5ff;
+  --primary-hover: #00d4e0;
+  --primary-glow: rgba(0, 245, 255, 0.5);
+  /* 背景色 - 深色炫酷 */
+  --bg-dark: #0a0a1a;
+  --bg-card: #12122a;
+  --bg-card-hover: #1a1a3a;
+  /* 文字颜色 */
+  --text-primary: #e0f7ff;
+  --text-secondary: #7fb8c9;
+  /* 强调色 */
+  --accent: #00f5ff;
+  --success: #00ffa3;
+  --warning: #ffcc00;
+  --danger: #ff3366;
+  --border: #2a3a4a;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 幻青主题专用 - 首页侧边栏 */
+.theme-cyan .sidebar,
+.theme-cyan [class*="sidebar"] {
+  background: linear-gradient(180deg, rgba(18, 18, 42, 0.95) 0%, rgba(10, 10, 26, 0.98) 100%) !important;
+  border-right: 1px solid var(--primary) !important;
+  box-shadow: 0 0 20px var(--primary-glow), inset 0 0 30px rgba(0, 245, 255, 0.05);
+}
+
+.theme-cyan .sidebar-section h3,
+.theme-cyan .sidebar h3,
+.theme-cyan [class*="sidebar-section"] h3 {
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 10px var(--primary-glow);
+  letter-spacing: 0.15em;
+}
+
+.theme-cyan .checkbox-label,
+.theme-cyan [class*="checkbox-label"] {
+  color: var(--text-primary) !important;
+}
+
+.theme-cyan .empty-text,
+.theme-cyan [class*="empty-text"] {
+  color: var(--text-secondary) !important;
+}
+
+.theme-cyan .tag-btn,
+.theme-cyan [class*="tag-btn"] {
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(0, 212, 224, 0.05) 100%) !important;
+  border: 1px solid var(--primary) !important;
+  color: var(--primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.theme-cyan .tag-btn:hover,
+.theme-cyan [class*="tag-btn"]:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+  box-shadow: 0 0 15px var(--primary-glow), 0 0 30px rgba(0, 245, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.theme-cyan .tag-btn.active,
+.theme-cyan [class*="tag-btn"].active {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%) !important;
+  border-color: var(--primary) !important;
+  color: #0a0a1a !important;
+  box-shadow: 0 0 20px var(--primary-glow), 0 0 40px rgba(0, 245, 255, 0.3);
+}
+
+.theme-cyan .checkbox-item:hover,
+.theme-cyan [class*="checkbox-item"]:hover {
+  background: rgba(0, 245, 255, 0.1) !important;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+}
+
+.theme-cyan .checkbox-custom,
+.theme-cyan [class*="checkbox-custom"] {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 5px var(--primary-glow);
+}
+
+.theme-cyan .checkbox-item input:checked + .checkbox-custom,
+.theme-cyan [class*="checkbox-item"] input:checked + .checkbox-custom {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* 幻青主题专用 - 顶部导航 */
+.theme-cyan.top-nav {
+  background: linear-gradient(90deg, rgba(10, 10, 26, 0.98) 0%, rgba(18, 18, 42, 0.95) 50%, rgba(10, 10, 26, 0.98) 100%) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid var(--primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 245, 255, 0.3), 0 0 40px rgba(0, 245, 255, 0.1);
+}
+
+.theme-cyan :deep(.logo) {
+  color: var(--primary);
+  text-shadow: 0 0 15px var(--primary-glow), 0 0 30px var(--primary-glow);
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  from { text-shadow: 0 0 15px var(--primary-glow), 0 0 30px var(--primary-glow); }
+  to { text-shadow: 0 0 25px var(--primary-glow), 0 0 50px var(--primary-glow), 0 0 75px var(--primary-glow); }
+}
+
+.theme-cyan :deep(.search-box) {
+  background: rgba(0, 245, 255, 0.05);
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.2), inset 0 0 20px rgba(0, 245, 255, 0.05);
+}
+
+.theme-cyan :deep(.search-box input) {
+  color: var(--text-primary);
+}
+
+.theme-cyan :deep(.search-box input::placeholder) {
+  color: var(--text-secondary);
+}
+
+.theme-cyan :deep(.nav-right .btn) {
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.theme-cyan :deep(.nav-right .btn:hover) {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* 幻青主题专用 - 视频卡片 */
+.theme-cyan :deep(.video-card) {
+  background: linear-gradient(135deg, rgba(18, 18, 42, 0.9) 0%, rgba(26, 26, 58, 0.9) 100%);
+  border: 1px solid var(--primary);
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.1), inset 0 0 30px rgba(0, 245, 255, 0.02);
+}
+
+.theme-cyan :deep(.video-card:hover) {
+  border-color: var(--primary);
+  box-shadow: 0 0 30px var(--primary-glow), 0 0 60px rgba(0, 245, 255, 0.2), inset 0 0 30px rgba(0, 245, 255, 0.05);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.theme-cyan :deep(.video-cover) {
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.theme-cyan :deep(.video-title) {
+  color: var(--text-primary);
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(0, 245, 255, 0.3);
+}
+
+.theme-cyan .video-duration,
+.theme-cyan [class*="video-duration"] {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%) !important;
+  color: #0a0a1a !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 15px var(--primary-glow);
+  animation: durationPulse 2s ease-in-out infinite;
+}
+
+@keyframes durationPulse {
+  0%, 100% { box-shadow: 0 0 10px var(--primary-glow); }
+  50% { box-shadow: 0 0 20px var(--primary-glow), 0 0 30px rgba(0, 245, 255, 0.3); }
+}
+
+/* 幻青主题专用 - 工具栏 */
+.theme-cyan :deep(.toolbar) {
+  background: linear-gradient(135deg, rgba(18, 18, 42, 0.95) 0%, rgba(26, 26, 58, 0.9) 100%);
+  border-radius: 16px;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.15), inset 0 0 30px rgba(0, 245, 255, 0.03);
+}
+
+.theme-cyan :deep(.video-count) {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.theme-cyan :deep(.select) {
+  background: rgba(0, 245, 255, 0.1);
+  border: 1px solid var(--primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.theme-cyan :deep(.select:focus) {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow), inset 0 0 10px rgba(0, 245, 255, 0.1);
+}
+
+/* 幻青主题专用 - 搜索结果提示 */
+.theme-cyan :deep(.search-result-header) {
+  background: linear-gradient(135deg, rgba(18, 18, 42, 0.95) 0%, rgba(26, 26, 58, 0.9) 100%);
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+}
+
+.theme-cyan :deep(.search-result-info) {
+  color: var(--primary);
+}
+
+/* 幻青主题专用 - 空状态 */
+.theme-cyan :deep(.empty-state) {
+  color: var(--text-secondary);
+}
+
+.theme-cyan :deep(.empty-state svg) {
+  opacity: 0.6;
+  stroke: var(--primary);
+  filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+/* 幻青主题专用 - 分页 */
+.theme-cyan :deep(.pagination-btn) {
+  background: rgba(0, 245, 255, 0.1);
+  border: 1px solid var(--primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.theme-cyan :deep(.pagination-btn:hover:not(:disabled)) {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #0a0a1a;
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.theme-cyan :deep(.pagination-btn.active) {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #0a0a1a;
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* 幻青主题专用 - 筛选横幅 */
+.theme-cyan :deep(.filter-banner) {
+  background: linear-gradient(90deg, rgba(0, 245, 255, 0.15) 0%, rgba(0, 212, 224, 0.1) 100%);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+  animation: bannerGlow 3s ease-in-out infinite;
+}
+
+@keyframes bannerGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(0, 245, 255, 0.4), 0 0 50px rgba(0, 245, 255, 0.2); }
+}
+
+/* 幻青主题专用 - 页脚 */
+.theme-cyan :deep(.app-footer),
+.theme-cyan .footer {
+  background: linear-gradient(180deg, rgba(10, 10, 26, 0.95) 0%, rgba(18, 18, 42, 0.98) 100%) !important;
+  border-top: 2px solid var(--primary) !important;
+  box-shadow: 0 -4px 20px rgba(0, 245, 255, 0.2);
+  color: var(--text-secondary);
+}
+
+/* 幻青主题专用 - 按钮 */
+.theme-cyan .btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: #0a0a1a;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.theme-cyan .btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 30px var(--primary-glow), 0 0 50px rgba(0, 245, 255, 0.3);
+}
+
+.theme-cyan .btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.theme-cyan .btn-secondary:hover {
+  background: rgba(0, 245, 255, 0.15);
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* 炫酷滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-hover) 100%);
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* 炫酷光效动画 */
+.theme-cyan::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+  animation: lightSweep 8s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes lightSweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
