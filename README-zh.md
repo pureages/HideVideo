@@ -104,28 +104,6 @@ go run main.go
 15. **视频流式播放** - 公开访问，无需登录
 16. **清理无效索引** - 清理已删除视频的数据库索引，错误封面等
 
-## 项目结构
-
-```
-HideVideo/
-├── backend/           # Go 后端
-│   ├── main.go       # 入口文件
-│   ├── config/       # 配置
-│   ├── models/       # 数据模型
-│   ├── handlers/     # API 处理器
-│   ├── database/     # 数据库操作
-│   └── utils/        # 工具函数 (FFmpeg调用)
-├── frontend/         # Vue3 前端
-│   ├── src/
-│   │   ├── views/   # 页面 (Home, Login, Libraries, FileManager, Settings, ActorVideos)
-│   │   ├── components/ # 组件 (TopNav, VideoPlayer, AppFooter)
-│   │   ├── stores/  # 状态管理 (auth, video)
-│   │   ├── api/     # API 调用
-│   │   └── router/  # 路由配置
-│   └── package.json
-└── data/             # 数据目录（SQLite数据库、封面、图标）
-```
-
 ## API 接口
 
 ### 认证
