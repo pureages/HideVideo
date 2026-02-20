@@ -61,7 +61,6 @@ cd HideVideo
 ##### 3. 启动服务器
 
 ```bash
-cd backend
 go mod tidy
 go run main.go
 ```
