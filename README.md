@@ -64,7 +64,6 @@ cd HideVideo
 ##### Start Backend
 
 ```bash
-cd backend
 go mod tidy
 go run main.go
 ```
